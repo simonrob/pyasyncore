@@ -15,7 +15,7 @@ with open('README.md') as readme_file:
 
 setup(
     name='pyasyncore',
-    version='1.0.0',
+    version='1.0.2',
     description='Make asyncore available for Python 3.12 onwards',
     long_description=readme,
     long_description_content_type='text/markdown',
