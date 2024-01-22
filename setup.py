@@ -8,14 +8,14 @@ packages = []
 if sys.version_info[0] == 3 and sys.version_info[1] >= 12:
     packages.append('asyncore')
 
-python_classifiers = ['Programming Language :: Python :: %s' % version for version in ['3.12']]
+python_classifiers = ['Programming Language :: Python :: %s' % version for version in ['3.12', '3.13']]
 
 with open('README.md') as readme_file:
     readme = readme_file.read()
 
 setup(
     name='pyasyncore',
-    version='1.0.2',
+    version='1.0.3',
     description='Make asyncore available for Python 3.12 onwards',
     long_description=readme,
     long_description_content_type='text/markdown',
