@@ -5,7 +5,7 @@ This package contains the [asyncore](https://docs.python.org/3.11/library/asynco
 It is provided so that existing code relying on `import asyncore` is able to continue being used without significant refactoring.
 
 The module's source code is taken directly from the [Python standard library](https://github.com/python/cpython/blob/c4d45ee670c09d4f6da709df072ec80cb7dfad22/Lib/asyncore.py)<sup id="a1">[[1]](#f1)</sup>.
-The specific version of [`asyncore.py`](https://github.com/simonrob/pyasyncore/blob/master/asyncore/asyncore.py) that is provided is the last update before the addition of deprecation/removal warnings at import time, and is essentially equivalent to [the version bundled with Python 3.9](https://github.com/python/cpython/blob/3.9/Lib/asyncore.py).
+The [specific version of asyncore that is provided](https://github.com/simonrob/pyasyncore/blob/master/asyncore/__init__.py) is the last update before the addition of deprecation/removal warnings at import time, and is essentially equivalent to [the version bundled with Python 3.9](https://github.com/python/cpython/blob/3.9/Lib/asyncore.py) (which was the last time the module was meaningfully updated).
 
 Please note that new projects should prefer [asyncio](https://docs.python.org/3/library/asyncio.html).
 
@@ -39,8 +39,16 @@ Note that the [PyPI module](https://pypi.org/project/pyasyncore/) is named `pyas
 For guidance about using the `asyncore` module, see the [official documentation](https://docs.python.org/3.11/library/asyncore.html).
 
 
+## Testing
+The [previous standard library tests](https://github.com/python/cpython/blob/3.11/Lib/test/test_asyncore.py) have also been replicated into this module.
+Run them using:
+```shell
+python -m unittest
+```
+
+
 ## Maintenance
-Due to the fact that this previously built-in module is [no-longer supported](https://peps.python.org/pep-0594/) by the Python core development team, no further maintenance of the code in [`asyncore.py`](https://github.com/simonrob/pyasyncore/blob/master/asyncore/asyncore.py) is intended.
+Due to the fact that this previously built-in module is [no-longer supported](https://peps.python.org/pep-0594/) by the Python core development team, no further maintenance of the [asyncore code](https://github.com/simonrob/pyasyncore/blob/master/asyncore/__init__.py) is intended.
 This project is only intended to be updated to make changes or improvements to the module packaging.
 
 
@@ -49,4 +57,4 @@ This project is only intended to be updated to make changes or improvements to t
 
 
 ### Footnotes
-<sub id="f1">1. Verify this if needed via: `diff <(curl --location https://github.com/python/cpython/raw/c4d45ee670c09d4f6da709df072ec80cb7dfad22/Lib/asyncore.py) <(curl --location https://github.com/simonrob/pyasyncore/raw/master/asyncore/asyncore.py)` [⏎](#a1)</sub>
+<sub id="f1">1. Verify this if needed via: `diff <(curl --location https://github.com/python/cpython/raw/c4d45ee670c09d4f6da709df072ec80cb7dfad22/Lib/asyncore.py) <(curl --location https://github.com/simonrob/pyasyncore/raw/master/asyncore/__init__.py)` [⏎](#a1)</sub>

@@ -1,12 +1,4 @@
 from setuptools import setup
-import sys
-
-# note: this check is not technically required as imports default to standard libraries where available, but it
-# ensures that we cannot cause any adverse effects where existing code is somehow reliant on behaviours of the
-# standard library asyncore module that are different to the one provided here
-packages = []
-if sys.version_info[0] == 3 and sys.version_info[1] >= 12:
-    packages.append('asyncore')
 
 python_classifiers = ['Programming Language :: Python :: %s' % version for version in ['3.12', '3.13']]
 
@@ -15,7 +7,7 @@ with open('README.md') as readme_file:
 
 setup(
     name='pyasyncore',
-    version='1.0.3',
+    version='1.0.4',
     description='Make asyncore available for Python 3.12 onwards',
     long_description=readme,
     long_description_content_type='text/markdown',
@@ -24,7 +16,7 @@ setup(
     url='https://github.com/simonrob/pyasyncore',
 
     platforms='any',
-    packages=packages,
+    packages=['asyncore'],
 
     license='Python Software Foundation License Version 2',
     classifiers=['Development Status :: 5 - Production/Stable',
