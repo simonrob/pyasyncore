@@ -796,17 +796,17 @@ class BaseTestAPI:
         finally:
             threading_helper.join_thread(t)
 
-class TestAPI_UseIPv4Sockets(BaseTestAPI):
+class API_UseIPv4Sockets(BaseTestAPI):
     family = socket.AF_INET
     addr = (socket_helper.HOST, 0)
 
 @unittest.skipUnless(socket_helper.IPV6_ENABLED, 'IPv6 support required')
-class TestAPI_UseIPv6Sockets(BaseTestAPI):
+class API_UseIPv6Sockets(BaseTestAPI):
     family = socket.AF_INET6
     addr = (socket_helper.HOSTv6, 0)
 
 @unittest.skipUnless(HAS_UNIX_SOCKETS, 'Unix sockets required')
-class TestAPI_UseUnixSockets(BaseTestAPI):
+class API_UseUnixSockets(BaseTestAPI):
     if HAS_UNIX_SOCKETS:
         family = socket.AF_UNIX
     addr = os_helper.TESTFN
@@ -815,25 +815,25 @@ class TestAPI_UseUnixSockets(BaseTestAPI):
         os_helper.unlink(self.addr)
         BaseTestAPI.tearDown(self)
 
-class TestAPI_UseIPv4Select(TestAPI_UseIPv4Sockets, unittest.TestCase):
+class TestAPI_UseIPv4Select(API_UseIPv4Sockets, unittest.TestCase):
     use_poll = False
 
 @unittest.skipUnless(hasattr(select, 'poll'), 'select.poll required')
-class TestAPI_UseIPv4Poll(TestAPI_UseIPv4Sockets, unittest.TestCase):
+class TestAPI_UseIPv4Poll(API_UseIPv4Sockets, unittest.TestCase):
     use_poll = True
 
-class TestAPI_UseIPv6Select(TestAPI_UseIPv6Sockets, unittest.TestCase):
+class TestAPI_UseIPv6Select(API_UseIPv6Sockets, unittest.TestCase):
     use_poll = False
 
 @unittest.skipUnless(hasattr(select, 'poll'), 'select.poll required')
-class TestAPI_UseIPv6Poll(TestAPI_UseIPv6Sockets, unittest.TestCase):
+class TestAPI_UseIPv6Poll(API_UseIPv6Sockets, unittest.TestCase):
     use_poll = True
 
-class TestAPI_UseUnixSocketsSelect(TestAPI_UseUnixSockets, unittest.TestCase):
+class TestAPI_UseUnixSocketsSelect(API_UseUnixSockets, unittest.TestCase):
     use_poll = False
 
 @unittest.skipUnless(hasattr(select, 'poll'), 'select.poll required')
-class TestAPI_UseUnixSocketsPoll(TestAPI_UseUnixSockets, unittest.TestCase):
+class TestAPI_UseUnixSocketsPoll(API_UseUnixSockets, unittest.TestCase):
     use_poll = True
 
 if __name__ == "__main__":
