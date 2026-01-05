@@ -46,6 +46,8 @@ Run them using:
 python -m unittest
 ```
 
+A [minor class name change](https://github.com/simonrob/pyasyncore/compare/9b5e373..24bb18e) has been made to the test suite to allow running with [pytest](https://pypi.org/project/pytest/) if desired, but otherwise the tests are unmodified.
+
 
 ## Maintenance
 Due to the fact that this previously built-in module is [no-longer supported](https://peps.python.org/pep-0594/) by the Python core development team, no further maintenance of the [asyncore code](https://github.com/simonrob/pyasyncore/blob/master/asyncore/__init__.py) is intended.
